@@ -1,4 +1,5 @@
-const URI = 'mongodb://paul:oracle123!@cluster0-shard-00-00-jjrmn.mongodb.net:27017,cluster0-shard-00-01-jjrmn.mongodb.net:27017,cluster0-shard-00-02-jjrmn.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true';
+// const URI = 'mongodb://paul:oracle123!@cluster0-shard-00-00-jjrmn.mongodb.net:27017,cluster0-shard-00-01-jjrmn.mongodb.net:27017,cluster0-shard-00-02-jjrmn.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true';
+const URI = 'mongodb://test:oracle123!@127.0.0.1:27017/test';
 const mongoose = require('mongoose');
 mongoose.connect(URI, { useNewUrlParser: true });
 
@@ -10,21 +11,7 @@ let locationSchema = new Schema({
   streetAddress: String,
   city: String,
   state: String,
-  zipCode: Number,
-  latitude: Number,
-  longitude: Number,
-  distance: Number,
-  driveThruHours: String,
-  diningRoomHours: String,
-  openDate: String,
-  imageURL: String,
-  englishApplicationURL: String,
-  spanishApplicationURL: String,
-  showSeparatedHours: Boolean,
-  hasDiningRoom: Boolean,
-  hasDriveThru: Boolean,
-  underRemodel: Boolean,
-  useGPSCoordinatesForDirections: Boolean
+  zipCode: Number
 });
 
 let Locations = mongoose.model('locations', locationSchema);
