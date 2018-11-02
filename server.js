@@ -35,9 +35,7 @@ app.get('/locations', locationController.getLocations, (req, res) => {
 	res.json(res.locals.locations);
 });
 
-app.get('/getStates', locationController.getStates, (req, res) => {
-	res.json(res.locals.states);
-});
+app.post('/locations', locationController.postLocation);
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
