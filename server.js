@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
   res.send('<h1>Hello!</h1>');
 })
 
-app.get('/getLocations', locationController.getLocations, (req, res) => {
+app.get('/locations', locationController.getLocations, (req, res) => {
   // these console.log statements are for demo-ing purposes.
   console.log("You've just hit the getLocations endpoint!\n");
   console.log("req.headers: ", req.headers, "\n\n");
@@ -39,15 +39,6 @@ app.get('/getStates', locationController.getStates, (req, res) => {
 	res.json(res.locals.states);
 });
 
-
-
-
-
-
-
-
-
-
 app.listen(PORT, () => {
-  console.log('listening on port 3000');
+  console.log(`listening on port ${PORT}`);
 });
