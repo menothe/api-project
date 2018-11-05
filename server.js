@@ -37,11 +37,16 @@ app.get('/locations', locationController.getLocations, (req, res) => {
 
 app.post('/locations', locationController.postLocation, (req, res, next) => {
   console.log('Posting a location to the database');
-  res.json({
-    'oracle': 'hello'
-  });
   res.done();
 });
+
+app.delete('/locations', locationController.deleteLocation, (req, res, next) => {
+  res.done();
+});
+
+app.put('/locations', locationController.updateLocation, (req, res, next) => {
+  
+})
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);

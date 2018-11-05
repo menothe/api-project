@@ -24,4 +24,20 @@ locationController.postLocation = (req, res, next) => {
   res.send('Successfully posted object in the database');
 }
 
+locationController.deleteLocation = (req, res, next) => {
+  Locations.findOneAndRemove({_id: req.body._id}, (err, result) => {
+    console.log(req.body);
+    console.log('item has been deleted');
+    if (err) new Error('sorry, your request did not go through');
+    res.end();
+  })
+}
+
+locationController.updateLocation = (req, res, next) => {
+  Locations.findOneAndUpdate({_id: req.body._id}, {$set: {storeNumber: 5}}, {upsert: true}, (err, doc) => {
+    if (err) {throw err;}
+    else {console.log("item has been updated")}
+  });
+}
+
 module.exports = locationController;
