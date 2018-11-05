@@ -30,12 +30,18 @@ app.get('/', (req, res) => {
 
 app.get('/locations', locationController.getLocations, (req, res) => {
   // these console.log statements are for demo-ing purposes.
-  console.log("You've just hit the getLocations endpoint!\n");
-  console.log("req.headers: ", req.headers, "\n\n");
+  // console.log("You've just hit the getLocations endpoint!\n");
+  // console.log("req.headers: ", req.headers, "\n\n");
 	res.json(res.locals.locations);
 });
 
-app.post('/locations', locationController.postLocation);
+app.post('/locations', locationController.postLocation, (req, res, next) => {
+  console.log('Posting a location to the database');
+  res.json({
+    'oracle': 'hello'
+  });
+  res.done();
+});
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
